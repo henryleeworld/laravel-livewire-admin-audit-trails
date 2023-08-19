@@ -12,7 +12,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
 class JoinController extends Controller
@@ -43,7 +42,7 @@ class JoinController extends Controller
         ]);
 
         $user->name = $request->input('name');
-        $user->password = Hash::make($request->input('newPassword'));
+        $user->password = $request->input('newPassword');
         $user->is_active = 1;
         $user->invite_token = null;
         $user->last_logged_in_at = now();

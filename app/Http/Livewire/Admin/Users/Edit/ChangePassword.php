@@ -8,7 +8,6 @@ use function add_user_log;
 use App\Models\User;
 use function flash;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
@@ -61,7 +60,7 @@ class ChangePassword extends Component
     {
         $this->validate();
 
-        $this->user->password = Hash::make($this->newPassword);
+        $this->user->password = $this->newPassword;
         $this->user->save();
 
         add_user_log([

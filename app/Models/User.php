@@ -58,6 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'invited_at' => 'datetime',
         'joined_at' => 'datetime',
         'last_activity' => 'datetime',
+        'password' => 'hashed',
     ];
 
     public function route($id): string

@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
             'name' => $validated['name'],
             'slug' => Str::slug($validated['name']),
             'email' => $validated['email'],
-            'password' => bcrypt($validated['password']),
+            'password' => $validated['password'],
             'is_active' => 1,
             'is_office_login_only' => 0,
         ]);
